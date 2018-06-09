@@ -1,0 +1,30 @@
+{
+  "name": "ack-pi",
+  "version": "1.0.0",
+  "description": "General Purpose Input Output the Acker way",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha ./test/cases --recursive",
+    "test:watch": "mocha ./test/cases --recursive --watch",
+    "build:dist": "tsc --declaration --project src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ackerapple/ack-pi.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi"
+  ],
+  "author": "Acker Apple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ackerapple/ack-pi/issues"
+  },
+  "homepage": "https://github.com/ackerapple/ack-pi#readme",
+  "devDependencies": {
+    "@types/node": "^10.3.2",
+    "mocha": "^5.2.0",
+    "typescript": "^2.9.1"
+  }
+}
