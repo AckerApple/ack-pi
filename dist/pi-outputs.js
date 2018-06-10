@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var inputs = require("./pi-inputs");
+var Pin_1 = require("./Pin");
 var pi_off_1 = require("./pi-off");
 var OutputPin = (function (_super) {
     __extends(OutputPin, _super);
@@ -27,7 +27,7 @@ var OutputPin = (function (_super) {
     OutputPin.prototype.setupOnOff = function () {
         this.Pi.connect();
     };
-    OutputPin.prototype.pinMode = function (freq) {
+    OutputPin.prototype.applyMode = function () {
         this.Pi.driver.pinMode(this.num, this.Pi.driver.OUTPUT);
     };
     OutputPin.prototype.softPwmCreate = function (lowNum, highNum) {
@@ -43,7 +43,7 @@ var OutputPin = (function (_super) {
         return this;
     };
     OutputPin.prototype.high = function () {
-        this.pinMode(this.Pi.driver.OUTPUT);
+        this.applyMode();
         this.Pi.driver.digitalWrite(this.num, this.Pi.driver.HIGH);
         this.isHigh = true;
         return this;
@@ -112,7 +112,7 @@ var OutputPin = (function (_super) {
         this.interval = setInterval(cpu, pace);
     };
     return OutputPin;
-}(inputs.Pin));
+}(Pin_1.Pin));
 exports.OutputPin = OutputPin;
 var Power = (function (_super) {
     __extends(Power, _super);

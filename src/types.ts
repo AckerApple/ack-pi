@@ -1,4 +1,5 @@
 export interface pin{
   num  : number
-  mode : any
+  type : "INPUT"|"OUTPUT"
+  mode : "HIGH"|"LOW"|any
 }

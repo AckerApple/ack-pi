@@ -1,10 +1,12 @@
 import * as inputs from './pi-inputs'
+import { Pin } from "./Pin"
 import { emitter as offObserver } from './pi-off'
 
-export class OutputPin extends inputs.Pin{
+export class OutputPin extends Pin{
   isHigh:boolean
   interval:number
   num:number
+  type:"OUTPUT"
 
   constructor(num, public Pi){
     super(num, Pi)
@@ -26,7 +28,7 @@ export class OutputPin extends inputs.Pin{
     
   }*/
 
-  pinMode(freq){
+  applyMode(){
     this.Pi.driver.pinMode(this.num, this.Pi.driver.OUTPUT)//switch to onoff mode incase was pwm
   }
   
@@ -48,7 +50,7 @@ export class OutputPin extends inputs.Pin{
 
   //led off, closed relay
   high(){
-    this.pinMode( this.Pi.driver.OUTPUT )
+    this.applyMode()//ensure is output
     this.Pi.driver.digitalWrite(this.num, this.Pi.driver.HIGH)
     this.isHigh = true
     return this

@@ -1,17 +1,5 @@
-import { pin } from "./types"
 import { PiCondition, Pi } from  "./pi-sample"
-
-export class Pin implements pin{
-  mode:any
-  
-  constructor(
-    public num:number,
-    public Pi:Pi
-  ){
-    this.num = num
-    this.Pi = Pi
-  }
-}
+import { Pin } from "./Pin"
 
 export class InputPin extends Pin{
   constructor(num, Pi){

@@ -1,13 +1,14 @@
-import * as inputs from './pi-inputs';
-export declare class OutputPin extends inputs.Pin {
+import { Pin } from "./Pin";
+export declare class OutputPin extends Pin {
     Pi: any;
     isHigh: boolean;
     interval: number;
     num: number;
+    type: "OUTPUT";
     constructor(num: any, Pi: any);
     destroy(): void;
     setupOnOff(): void;
-    pinMode(freq: any): void;
+    applyMode(): void;
     softPwmCreate(lowNum: any, highNum: any): void;
     softPwmWrite(index: any): void;
     low(): this;

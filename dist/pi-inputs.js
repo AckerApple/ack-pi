@@ -11,16 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var pi_sample_1 = require("./pi-sample");
-var Pin = (function () {
-    function Pin(num, Pi) {
-        this.num = num;
-        this.Pi = Pi;
-        this.num = num;
-        this.Pi = Pi;
-    }
-    return Pin;
-}());
-exports.Pin = Pin;
+var Pin_1 = require("./Pin");
 var InputPin = (function (_super) {
     __extends(InputPin, _super);
     function InputPin(num, Pi) {
@@ -39,7 +30,7 @@ var InputPin = (function (_super) {
         return this.Pi || (this.Pi = new pi_sample_1.Pi());
     };
     return InputPin;
-}(Pin));
+}(Pin_1.Pin));
 exports.InputPin = InputPin;
 var BtnPin = (function (_super) {
     __extends(BtnPin, _super);
