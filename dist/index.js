@@ -1,7 +1,4 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
 function foo() {
     return require('./pi-sample').pi();
@@ -13,4 +10,6 @@ function pi(liveMode) {
     return liveMode ? live() : foo();
 }
 exports.pi = pi;
-__export(require("./OrdinalProcessor"));
+var OrdinalProcessor_1 = require("./OrdinalProcessor");
+exports.op = OrdinalProcessor_1.op;
+exports.OrdinalProcessor = OrdinalProcessor_1.OrdinalProcessor;

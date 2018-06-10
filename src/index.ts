@@ -13,4 +13,5 @@ export function pi( liveMode:boolean ){
   return liveMode ? live() : foo()
 }
 
-export * from "./OrdinalProcessor"
+export { op, OrdinalProcessor } from "./OrdinalProcessor"
+export * from "./types"

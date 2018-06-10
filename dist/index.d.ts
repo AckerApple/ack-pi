@@ -1,2 +1,3 @@
 export declare function pi(liveMode: boolean): any;
-export * from "./OrdinalProcessor";
+export { op, OrdinalProcessor } from "./OrdinalProcessor";
+export * from "./types";
