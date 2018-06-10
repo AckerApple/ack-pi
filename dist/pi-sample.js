@@ -69,6 +69,8 @@ var Pi = (function () {
     function Pi(driver) {
         if (driver === void 0) { driver = defaultDriver; }
         this.driver = driver;
+        this.outputPin = this.output;
+        this.inputPin = this.input;
         this.conditions = [];
         this.connect();
     }
@@ -106,7 +108,7 @@ var Pi = (function () {
         }
         return this;
     };
-    Pi.prototype.outputPin = function (num) {
+    Pi.prototype.output = function (num) {
         return new outputs.OutputPin(num, this);
     };
     Pi.prototype.buzzer = function (num) {
@@ -121,7 +123,7 @@ var Pi = (function () {
     Pi.prototype.led = function (num) {
         return new outputs.Led(num, this);
     };
-    Pi.prototype.inputPin = function (num) {
+    Pi.prototype.input = function (num) {
         return new inputs.InputPin(num, this);
     };
     Pi.prototype.btnPin = function (num) {

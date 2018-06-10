@@ -1,15 +1,16 @@
+import { Pi } from "./pi-sample"
 
 declare const require:any
 
-function foo(){
+function foo():Pi{
   return require('./pi-sample').pi()
 }
 
-function live(){
+function live():Pi{
   return require('./pi').pi()
 }
 
-export function pi( liveMode:boolean ){
+export function pi( liveMode:boolean ):Pi{
   return liveMode ? live() : foo()
 }
 

@@ -40,11 +40,13 @@ export declare class Pi {
     process(): void;
     when(reader: any, condition: any): PiCondition;
     killCondition(piCondition: any): this;
-    outputPin(num: any): outputs.OutputPin;
+    output(num: any): outputs.OutputPin;
+    outputPin: (num: any) => outputs.OutputPin;
     buzzer(num: any): outputs.Buzzer;
     relay(num: any): outputs.Relay;
     power(num: any): outputs.Power;
     led(num: any): outputs.Led;
-    inputPin(num: any): inputs.InputPin;
+    input(num: any): inputs.InputPin;
+    inputPin: (num: any) => inputs.InputPin;
     btnPin(num: any): inputs.BtnPin;
 }

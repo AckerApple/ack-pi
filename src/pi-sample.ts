@@ -143,9 +143,10 @@ export class Pi{
     return this
   }
 
-  outputPin(num){
+  output(num){
     return new outputs.OutputPin(num, this)
   }
+  outputPin=this.output
 
   buzzer(num){
     return new outputs.Buzzer(num, this)
@@ -163,9 +164,10 @@ export class Pi{
     return new outputs.Led(num, this)
   }
 
-  inputPin(num){
+  input(num){
     return new inputs.InputPin(num, this)
   }
+  inputPin=this.input
 
   btnPin(num){
     return new inputs.BtnPin(num, this)
