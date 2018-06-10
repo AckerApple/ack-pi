@@ -1,3 +1,4 @@
+export { Pin } from "./pin"
 import { Pi } from "./pi-sample"
 
 declare const require:any

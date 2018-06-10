@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var pin_1 = require("./pin");
+exports.Pin = pin_1.Pin;
 function foo() {
     return require('./pi-sample').pi();
 }
