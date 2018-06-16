@@ -6,7 +6,7 @@ export class OutputPin extends Pin{
   isHigh:boolean
   interval:number
   num:number
-  type:"OUTPUT"
+  type:"OUTPUT" = "OUTPUT"
 
   constructor(num, public Pi){
     super(num, Pi)
@@ -28,7 +28,8 @@ export class OutputPin extends Pin{
     
   }*/
 
-  applyMode(){
+  //was apply mode
+  applyPinMode(){
     this.Pi.driver.pinMode(this.num, this.Pi.driver.OUTPUT)//switch to onoff mode incase was pwm
   }
   
@@ -50,7 +51,7 @@ export class OutputPin extends Pin{
 
   //led off, closed relay
   high(){
-    this.applyMode()//ensure is output
+    this.applyPinMode()//ensure is output
     this.Pi.driver.digitalWrite(this.num, this.Pi.driver.HIGH)
     this.isHigh = true
     return this

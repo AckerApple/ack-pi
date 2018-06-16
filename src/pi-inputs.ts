@@ -2,6 +2,8 @@ import { PiCondition, Pi } from  "./pi-sample"
 import { Pin } from "./Pin"
 
 export class InputPin extends Pin{
+  type:"INPUT" = "INPUT"
+
   constructor(num, Pi){
     super(num, Pi)
     Pi.driver.pinMode(num, Pi.driver.INPUT)

@@ -2,7 +2,7 @@ import { pin } from "./types"
 import { Pi } from  "./pi-sample"
 
 export class Pin implements pin{
-  mode:any
+  mode:"high"|"low"|any
   type:"INPUT"|"OUTPUT"
   
   constructor(
