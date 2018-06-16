@@ -17,6 +17,7 @@ var OutputPin = (function (_super) {
     function OutputPin(num, Pi) {
         var _this = _super.call(this, num, Pi) || this;
         _this.Pi = Pi;
+        _this.type = "OUTPUT";
         Pi.driver.pinMode(_this.num, Pi.driver.OUTPUT);
         pi_off_1.emitter.once("exit", function () {
             _this.destroy();
@@ -27,7 +28,7 @@ var OutputPin = (function (_super) {
     OutputPin.prototype.setupOnOff = function () {
         this.Pi.connect();
     };
-    OutputPin.prototype.applyMode = function () {
+    OutputPin.prototype.applyPinMode = function () {
         this.Pi.driver.pinMode(this.num, this.Pi.driver.OUTPUT);
     };
     OutputPin.prototype.softPwmCreate = function (lowNum, highNum) {
@@ -43,7 +44,7 @@ var OutputPin = (function (_super) {
         return this;
     };
     OutputPin.prototype.high = function () {
-        this.applyMode();
+        this.applyPinMode();
         this.Pi.driver.digitalWrite(this.num, this.Pi.driver.HIGH);
         this.isHigh = true;
         return this;

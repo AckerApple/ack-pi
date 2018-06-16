@@ -8,7 +8,7 @@ export declare class OutputPin extends Pin {
     constructor(num: any, Pi: any);
     destroy(): void;
     setupOnOff(): void;
-    applyMode(): void;
+    applyPinMode(): void;
     softPwmCreate(lowNum: any, highNum: any): void;
     softPwmWrite(index: any): void;
     low(): this;

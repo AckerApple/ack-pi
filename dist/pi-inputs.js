@@ -16,6 +16,7 @@ var InputPin = (function (_super) {
     __extends(InputPin, _super);
     function InputPin(num, Pi) {
         var _this = _super.call(this, num, Pi) || this;
+        _this.type = "INPUT";
         Pi.driver.pinMode(num, Pi.driver.INPUT);
         return _this;
     }
