@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Pin_1 = require("./Pin");
+var pin_1 = require("./pin");
 var pi_off_1 = require("./pi-off");
 var OutputPin = (function (_super) {
     __extends(OutputPin, _super);
@@ -113,7 +113,7 @@ var OutputPin = (function (_super) {
         this.interval = setInterval(cpu, pace);
     };
     return OutputPin;
-}(Pin_1.Pin));
+}(pin_1.Pin));
 exports.OutputPin = OutputPin;
 var Power = (function (_super) {
     __extends(Power, _super);

@@ -1,5 +1,5 @@
 import { PiCondition, Pi } from "./pi-sample";
-import { Pin } from "./Pin";
+import { Pin } from "./pin";
 export declare class InputPin extends Pin {
     type: "INPUT";
     constructor(num: any, Pi: any);

@@ -1,5 +1,5 @@
 import * as inputs from './pi-inputs'
-import { Pin } from "./Pin"
+import { Pin } from "./pin"
 import { emitter as offObserver } from './pi-off'
 
 export class OutputPin extends Pin{

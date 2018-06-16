@@ -1,4 +1,4 @@
-import { Pin } from "./Pin";
+import { Pin } from "./pin";
 export declare class OutputPin extends Pin {
     Pi: any;
     isHigh: boolean;
