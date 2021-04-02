@@ -8,6 +8,11 @@ describe("ack-pi",()=>{
   })
 
   it('#pi',()=>{
-    assert.equal(api.pi().constructor, Pi)
+    const object = api.pi()
+    assert.equal(object.constructor, Pi)
+    const driver = object.driver
+    assert.equal(driver && true, true)
+    assert.equal(driver.wiringPiSetup && true, true)
+    assert.equal(driver.pinMode && true, true)``
   })
 })

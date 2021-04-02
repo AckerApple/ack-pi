@@ -1,6 +1,6 @@
 {
   "name": "ack-pi",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "General Purpose Input Output the Acker way",
   "main": "dist/index.js",
   "scripts": {

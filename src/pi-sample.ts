@@ -38,6 +38,7 @@ const defaultDriver:driver = {
   softPwmWrite:(pin, freq)=>null
 }
 
+/** main function */
 export function pi( driver:driver ){
   return new Pi( driver )
 }
@@ -55,12 +56,12 @@ export class PiCondition{
     this.thens = []
     this.falses = []
   }
-  
+
   setLastState(state){
     this.lastResult = this.condition===state
     return this
   }
-  
+
   then(t){
     this.thens.push(t)
     return this
@@ -70,15 +71,15 @@ export class PiCondition{
     this.falses.push(f)
     return this
   }
-  
+
   process(){
     const value = this.reader()
     const result = value===this.condition
-    
+
     if(this.lastResult===result)return;
-    
+
     this.lastResult = result
-    
+
     if( result ){
       this.processThens()
     }else{
@@ -103,7 +104,7 @@ export class Pi{
     this.conditions = []
     this.connect()
   }
-  
+
   //intended to be overridden
   connect(){
     if( this.driver.wiringPiSetup() == -1){
@@ -117,22 +118,22 @@ export class Pi{
     this.interval = <any>setInterval(()=>this.process(),0)
     return this
   }
-  
+
   stop(){
     clearInterval(this.interval)
     delete this.interval
   }
-  
+
   process(){
     this.conditions.forEach(c=>c.process())
   }
-  
+
   when(reader, condition){
     const piCondition = new PiCondition(reader, condition)
     this.conditions.push( piCondition )
     return piCondition
   }
-  
+
   killCondition( piCondition ){
     for(let x=this.conditions.length-1; x >= 0; --x){
       if( this.conditions[x] == piCondition ){
