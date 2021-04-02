@@ -1,6 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var wpi = require('wiringpi-node');
+var wpi;
+try {
+    wpi = require('node-wiring-pi');
+}
+catch (err) {
+    wpi = require('wiringpi-node');
+    try {
+    }
+    catch (err) {
+        throw 'Cannot load node-wiring-pi nor wiringpi-node';
+    }
+}
 var pi_sample_1 = require("./pi-sample");
 function pi() {
     return pi_sample_1.pi(wpi);
