@@ -10,7 +10,7 @@ export class InputPin extends Pin{
   }
 
   //intended to be overridden
-  getState(){
+  getState() {
     return this.Pi.driver.digitalRead(this.num)
   }
 

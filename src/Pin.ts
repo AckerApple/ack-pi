@@ -3,6 +3,7 @@ import { Pi } from  "./pi-sample"
 
 export class Pin implements pin{
   type: "INPUT" | "OUTPUT"
+  mode?: "HIGH" | "LOW"
 
   constructor(
     public num:number,
