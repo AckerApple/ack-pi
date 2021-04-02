@@ -4,6 +4,7 @@
   "description": "General Purpose Input Output the Acker way",
   "main": "dist/index.js",
   "scripts": {
+    "save": "git add . && git commit -m \"update\" && git push",
     "test": "mocha ./test/cases --recursive",
     "test:watch": "mocha ./test/cases --recursive --watch",
     "build": "npm run build:dist",

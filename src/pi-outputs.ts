@@ -3,10 +3,10 @@ import { Pin } from "./pin"
 import { emitter as offObserver } from './pi-off'
 
 export class OutputPin extends Pin{
-  isHigh:boolean
-  interval:number
-  num:number
-  type:"OUTPUT" = "OUTPUT"
+  isHigh: boolean
+  interval: any
+  num: number
+  type: "OUTPUT" = "OUTPUT"
 
   constructor(num, public Pi){
     super(num, Pi)
@@ -19,20 +19,16 @@ export class OutputPin extends Pin{
   }
 
   destroy(){}
-  
+
   setupOnOff(){
     this.Pi.connect()
   }
-
-  /*write(freq){
-    
-  }*/
 
   //was apply mode
   applyPinMode(){
     this.Pi.driver.pinMode(this.num, this.Pi.driver.OUTPUT)//switch to onoff mode incase was pwm
   }
-  
+
   softPwmCreate(lowNum, highNum){
     this.Pi.driver.softPwmCreate(this.num, lowNum, highNum)
   }
@@ -80,10 +76,10 @@ export class OutputPin extends Pin{
     },interval)
   }
 
-  blinkExactly(num, delay){
+  blinkExactly(num, delay): Promise<void> {
     return new Promise((res,rej)=>{
       if(num===0)return res()
-      
+
       num = num || 5
       delay = delay || 200
       this.toggleUpdate()
@@ -93,37 +89,37 @@ export class OutputPin extends Pin{
       },delay)
     })
   }
-  
+
   breath( pace, gap ){
     this.Pi.driver.softPwmCreate(this.num, 0, 100)
-    
+
     pace = pace || 20
     gap = gap || 1000
     let index = 100//off
     let goingOn = true
-    
+
     const runner = ()=>{
-      goingOn ? --index : ++index 
+      goingOn ? --index : ++index
       this.Pi.driver.softPwmWrite(this.num, index)
     }
-    
+
     const cpu = ()=>{
       runner()
-      
+
       if( index===100 || index===0 ){
         goingOn = !goingOn
-        
+
         if( index===100 ){
           clearInterval(this.interval)
           setTimeout(()=>{
             if( !this.interval )return//was turned off during wait to breath again
-            
+
             this.interval = setInterval(cpu,pace)
           },gap)
         }
       }
     }
-    
+
     this.interval = setInterval(cpu,pace)
   }
 }
