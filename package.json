@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha ./test/cases --recursive",
     "test:watch": "mocha ./test/cases --recursive --watch",
+    "build": "npm run build:dist",
     "build:dist": "tsc --declaration --project src"
   },
   "repository": {

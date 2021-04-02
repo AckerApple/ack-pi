@@ -7,7 +7,7 @@ try {
   wpi = require('wiringpi-node')
   try {
   } catch (err) {
-    throw err
+    throw 'Cannot load node-wiring-pi nor wiringpi-node'
   }
 }
 
