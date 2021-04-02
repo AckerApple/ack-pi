@@ -2,7 +2,7 @@ import { Pin } from "./pin";
 export declare class OutputPin extends Pin {
     Pi: any;
     isHigh: boolean;
-    interval: number;
+    interval: any;
     num: number;
     type: "OUTPUT";
     constructor(num: any, Pi: any);
@@ -16,7 +16,7 @@ export declare class OutputPin extends Pin {
     toggle(): void;
     toggleUpdate(): void;
     blink(interval: any): void;
-    blinkExactly(num: any, delay: any): Promise<{}>;
+    blinkExactly(num: any, delay: any): Promise<void>;
     breath(pace: any, gap: any): void;
 }
 export declare class Power extends OutputPin {
