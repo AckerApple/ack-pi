@@ -4,8 +4,9 @@ let wpi
 try {
   wpi = require('node-wiring-pi')
 } catch (err) {
-  wpi = require('wiringpi-node')
+  console.warn('Could not load node-wiring-pi, trying wiringpi-node', err)
   try {
+    wpi = require('wiringpi-node')
   } catch (err) {
     throw 'Cannot load node-wiring-pi nor wiringpi-node'
   }
