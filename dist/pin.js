@@ -10,3 +10,4 @@ var Pin = (function () {
     return Pin;
 }());
 exports.Pin = Pin;
+//# sourceMappingURL=Pin.js.map

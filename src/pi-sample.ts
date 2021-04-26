@@ -144,7 +144,7 @@ export class Pi{
     return this
   }
 
-  output(num){
+  output(num): outputs.OutputPin {
     return new outputs.OutputPin(num, this)
   }
   outputPin=this.output
@@ -165,7 +165,7 @@ export class Pi{
     return new outputs.Led(num, this)
   }
 
-  input(num){
+  input(num): inputs.InputPin{
     return new inputs.InputPin(num, this)
   }
   inputPin=this.input

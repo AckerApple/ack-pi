@@ -20,3 +20,4 @@ exports.op = OrdinalProcessor_1.op;
 exports.OrdinalProcessor = OrdinalProcessor_1.OrdinalProcessor;
 __export(require("./pi-inputs"));
 __export(require("./pi-outputs"));
+//# sourceMappingURL=index.js.map
