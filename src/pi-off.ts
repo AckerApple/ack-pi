@@ -4,11 +4,11 @@ All Outputs use this file to turn off when app over.
 Prevents light from staying on
 */
 
-import * as events from 'events'
-
-export const emitter = new events()
+import { Subject } from 'rxjs'
+export const emitter = new Subject()
 
 process.once('SIGINT', ()=>{
-  emitter.emit('exit')
+  emitter.next()
+  // emitter.emit('exit')
   process.exit()
 })

@@ -1,6 +1,7 @@
-import * as inputs from './pi-inputs'
+import { Pi } from  "./pi-sample"
 import { Pin } from "./pin"
 import { emitter as offObserver } from './pi-off'
+import { Subscription } from "rxjs"
 
 export class OutputPin extends Pin{
   isHigh: boolean
@@ -8,17 +9,20 @@ export class OutputPin extends Pin{
   num: number
   type: "OUTPUT" = "OUTPUT"
 
-  constructor(num, public Pi){
+  subs = new Subscription()
+
+  constructor(num, public Pi: Pi){
     super(num, Pi)
     Pi.driver.pinMode(this.num, Pi.driver.OUTPUT)
 
-
-    offObserver.once("exit",()=>{
-      this.destroy()
-    })
+    this.subs.add(
+      offObserver.subscribe(() => this.destroy())
+    )
   }
 
-  destroy(){}
+  destroy(){
+    this.subs.unsubscribe()
+  }
 
   setupOnOff(){
     this.Pi.connect()

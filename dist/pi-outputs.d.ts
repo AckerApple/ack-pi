@@ -1,11 +1,14 @@
+import { Pi } from "./pi-sample";
 import { Pin } from "./pin";
+import { Subscription } from "rxjs";
 export declare class OutputPin extends Pin {
-    Pi: any;
+    Pi: Pi;
     isHigh: boolean;
     interval: any;
     num: number;
     type: "OUTPUT";
-    constructor(num: any, Pi: any);
+    subs: Subscription;
+    constructor(num: any, Pi: Pi);
     destroy(): void;
     setupOnOff(): void;
     applyPinMode(): void;

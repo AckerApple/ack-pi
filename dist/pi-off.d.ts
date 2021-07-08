@@ -1,3 +1,2 @@
-/// <reference types="node" />
-import * as events from 'events';
-export declare const emitter: events;
+import { Subject } from 'rxjs';
+export declare const emitter: Subject<{}>;

@@ -1,14 +1,15 @@
 {
   "name": "ack-pi",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "General Purpose Input Output the Acker way",
   "main": "dist/index.js",
   "scripts": {
-    "save": "npm run build && git add . && git commit -m \"update\" && git push",
+    "save": "npm run build && npm run patch:version && git add . && git commit -m \"update\" && git push",
     "test": "mocha ./test/cases --recursive",
     "test:watch": "mocha ./test/cases --recursive --watch",
     "build": "npm run build:dist",
-    "build:dist": "tsc --declaration --project src"
+    "build:dist": "tsc --declaration --project src",
+    "patch:version": "npm --no-git-tag-version version patch"
   },
   "repository": {
     "type": "git",

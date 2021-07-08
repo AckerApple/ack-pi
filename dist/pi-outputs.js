@@ -12,19 +12,21 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var pin_1 = require("./pin");
 var pi_off_1 = require("./pi-off");
+var rxjs_1 = require("rxjs");
 var OutputPin = (function (_super) {
     __extends(OutputPin, _super);
     function OutputPin(num, Pi) {
         var _this = _super.call(this, num, Pi) || this;
         _this.Pi = Pi;
         _this.type = "OUTPUT";
+        _this.subs = new rxjs_1.Subscription();
         Pi.driver.pinMode(_this.num, Pi.driver.OUTPUT);
-        pi_off_1.emitter.once("exit", function () {
-            _this.destroy();
-        });
+        _this.subs.add(pi_off_1.emitter.subscribe(function () { return _this.destroy(); }));
         return _this;
     }
-    OutputPin.prototype.destroy = function () { };
+    OutputPin.prototype.destroy = function () {
+        this.subs.unsubscribe();
+    };
     OutputPin.prototype.setupOnOff = function () {
         this.Pi.connect();
     };
