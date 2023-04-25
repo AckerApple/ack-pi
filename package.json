@@ -27,7 +27,7 @@
   "homepage": "https://github.com/ackerapple/ack-pi#readme",
   "devDependencies": {
     "@types/node": "^10.3.2",
-    "mocha": "^5.2.0",
+    "mocha": "^10.2.0",
     "typescript": "^2.9.1"
   }
 }
